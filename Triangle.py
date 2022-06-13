@@ -22,3 +22,6 @@ class Solution:
             lower_right = triangle[i][j] + dfs(i + 1, j + 1)
             return min(lower_left, lower_right)
         return dfs(0,0)
+
+        # Solution 3
+        return reduce(lambda a,b:[f+min(d,e)for d,e,f in zip(a,a[1:],b)],triangle[::-1])[0]
